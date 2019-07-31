@@ -69,9 +69,6 @@ function updatePlugins()
   if not lastupdate or lastupdate ~= today then
     HandleCommand("plugin update")
 
-    -- close readable file
-    rfile:close()
-
     -- open writable file, set updated date string, close file
     wfile = io.open(filepath, "w+")
     wfile:write(today)
@@ -80,6 +77,9 @@ function updatePlugins()
     -- tell me that plugins were updated
     messenger:Message("Updated Plugins")
   end
+
+  -- close readable file
+  rfile:close()
 end
 
 function onViewOpen(view)
