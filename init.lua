@@ -21,9 +21,11 @@ end
 function readonlyBuffer()
   -- how to handle interactive shell, reload, other commands
   -- that reloads options / current file
+  local isReadonly = CurView().Type.Readonly
 
   -- if view is already readonly, make not readonly
-  if CurView().Type.Readonly then
+  if isReadonly then
+    -- can't set the value via the isReadonly reference
     CurView().Type.Readonly = false
 
     -- reload to restore the blocked commands
