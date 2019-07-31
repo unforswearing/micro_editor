@@ -1,0 +1,39 @@
+# Nord colorscheme for micro editor
+###################################
+color-link default "#ECEFF4"
+# some hex colors do not work (like the one below)
+# need to find a replacement for nord theme
+color-link comment "#4F4F4F"
+# identifier: var function, etc
+color-link identifier "#5E81AC"
+color-link constant "italic #BF616A"
+color-link constant.string "#ddd2bc"
+color-link constant.number "#43CD97"
+
+color-link constant.specialChar "italic #BF616A"
+color-link identifier.class "#88C0D0"
+color-link identifier.var "#8FBCBB" # "#BF616A"
+color-link identifier.macro "bold #e34234"
+color-link statement "#8FBCBB"
+# not sure what symbol/preproc is (it will be yellow when exists)
+# color-link symbol "#EBCB8B"
+color-link symbol.operator "#EBCB8B" #"#BF616A"
+# color-link symbol.tag "#EBCB8B"
+# color-link symbol.brackets "#EBCB8B"
+color-link preproc "#BF616A"
+# type = Number, Object, String, etc (js)
+color-link type "#BF616A"
+color-link type.keyword "#EBCB8B"
+# not sure what special/underlined is (it will be red when exists)
+# special seems to mean numeric operators in bash
+color-link special "#81A1C1"
+color-link underlined "#BF616A"
+# not sure what error is (will be orange when exists)
+color-link error "#D08770"
+color-link todo "#EBCB8B"
+color-link statusline "#012345,#81A1C1"
+color-link line-number "#4F4F4F"
+color-link current-line-number "#012345,#81A1C1"
+color-link cursor-line "#BF616A"
+color-link color-column "#4F4F4F"
+color-link divider "#81A1C1"

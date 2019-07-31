@@ -1,0 +1,15 @@
+{
+  "Esc": "command:term",
+  "CtrlE": "EndOfLine",
+  "CtrlA": "StartOfLine",
+  "F1": "VSplit",
+  "F2": "HSplit",
+  "F5": "init.shellcheck",
+  "F6": "Unsplit",
+  "F11": "PreviousTab",
+  "F12": "NextTab",
+  "CtrlN": "NextSplit",
+  "Ctrl-R": "CommandMode",
+  "F9": "PreviousSplit",
+  "F10": "NextSplit"
+}
