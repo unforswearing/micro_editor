@@ -52,10 +52,70 @@ end
 BindKey("Altr", "init.readonlyBuffer")
 MakeCommand("readonly", "init.readonlyBuffer", 0)
 
-function onOpenFile(view)
--- function onViewOpen(view)
-  -- if CurView().Type.Readonly then
-    -- CurView().Type.Readonly = false
-  -- end
--- messenger:Message(arg)
+function updatePlugins()
+  -- get home path to avoid hardcoding
+  home = os.getenv("HOME")
+  -- todays date as a two character string prepended with "00"
+  today = tostring(os.date("00%d"))
+
+  -- path to file containing string of last update
+  filepath = home .. "/.config/micro/plugin_update.info"
+
+  -- open a readable version of the file
+  rfile = io.open(filepath, "r+")
+  lastupdate = rfile:read "*a"
+
+  -- if the file doesn't exist or the last update was before today
+  if not lastupdate or lastupdate ~= today then
+    HandleCommand("plugin update")
+
+    -- close readable file
+    rfile:close()
+
+    -- open writable file, set updated date string, close file
+    wfile = io.open(filepath, "w+")
+    wfile:write(today)
+    wfile:close()
+
+    -- tell me that plugins were updated
+    messenger:Message("Updated Plugins")
+  end
 end
+
+function onViewOpen(view)
+  updatePlugins()
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
