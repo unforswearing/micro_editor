@@ -37,7 +37,8 @@ function readonlyBuffer()
   -- block commands that reload runtime files and any editing commands
   -- that could break the readonly status of the buffer
   local commands = {
-    "term", "reload", "open", "replace", "replaceAll", "eval", "run"
+    "term", "reload", "open", "replace", "replaceAll", "eval", "run",
+    "set", "setlocal", "bind", "plugin"
   }
 
   for _, comm in ipairs(commands) do
@@ -80,10 +81,13 @@ function updatePlugins()
 
   -- close readable file
   rfile:close()
+  return true
 end
 
 function onViewOpen(view)
+  if CurView().Type.Readonly then doNothing() end
   updatePlugins()
+  return true
 end
 
 
