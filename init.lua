@@ -54,6 +54,7 @@ function readonlyBuffer()
   messenger:Error("READONLY - file is locked for editing")
 end
 
+-- Alt+r works in iTerm on MacOs if Option is set to Esc+ in the 'Keys' menu
 BindKey("Altr", "init.readonlyBuffer")
 MakeCommand("readonly", "init.readonlyBuffer", 0)
 
@@ -104,7 +105,8 @@ function updatePlugins()
 end
 
 function onViewOpen(view)
-  -- if the readonlyBuffer doesn't exit when micro re/starts
+  -- if (somehow) the readonlyBuffer = false when when micro re/starts
+  -- show the 'READONLY' warning in the gutter. this shouldn't ever trigger
   if CurView().Type.Readonly then doNothing() end
 
   -- update plugins
