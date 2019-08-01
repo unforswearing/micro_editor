@@ -55,6 +55,19 @@ end
 BindKey("Altr", "init.readonlyBuffer")
 MakeCommand("readonly", "init.readonlyBuffer", 0)
 
+function scratchBuffer()
+  if CurView().Type.Scratch then
+    CurView().Type.Scratch = false
+    messenger:Message("Normal Buffer")
+    do return end
+  end
+
+  CurView().Type.Scratch = true
+  messenger:Message("Scratch Buffer")
+end
+
+MakeCommand("scratch", "init.scratchBuffer", 0)
+
 function updatePlugins()
   -- get home path to avoid hardcoding
   home = os.getenv("HOME")
