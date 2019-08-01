@@ -34,7 +34,7 @@ function readonlyBuffer()
     Reload()
 
     -- display status
-    messenger:Message("File unlocked")
+    messenger:Message("Normal Buffer - File unlocked")
     do return end
   end
 
