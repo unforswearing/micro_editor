@@ -1,3 +1,5 @@
+-- shellcheck is going to be a plugin
+-- this is here for no real reason
 function shellcheck()
     local buf = CurView().Buf -- The current buffer
     if buf:FileType() == "shell" then
@@ -9,7 +11,7 @@ end
 -- BindKey("F5", "init.shellcheck")
 MakeCommand("shellcheck", "init.shellcheck", 0)
 
-
+-- standin function for blocked readonlyBuffer commands
 function doNothing()
   messenger:Error("READONLY - blocked command")
   do return end
@@ -55,6 +57,7 @@ end
 BindKey("Altr", "init.readonlyBuffer")
 MakeCommand("readonly", "init.readonlyBuffer", 0)
 
+-- scratch buffer, maybe eventually like readonlyBuffer.
 function scratchBuffer()
   if CurView().Type.Scratch then
     CurView().Type.Scratch = false
@@ -68,6 +71,7 @@ end
 
 MakeCommand("scratch", "init.scratchBuffer", 0)
 
+-- automatically update plugins, checking once per day
 function updatePlugins()
   -- get home path to avoid hardcoding
   home = os.getenv("HOME")
@@ -100,8 +104,13 @@ function updatePlugins()
 end
 
 function onViewOpen(view)
+  -- if the readonlyBuffer doesn't exit when micro re/starts
   if CurView().Type.Readonly then doNothing() end
+
+  -- update plugins
   updatePlugins()
+
+  -- return focus to cursor
   return true
 end
 
