@@ -1,13 +1,20 @@
--- shellcheck is going to be a plugin
-require "shellcheck"
+home = os.getenv("HOME")
+sh_file = home .. '/.lua/sh.lua'
 
--- this is here for no real reason
-function shellcheck()
-    shellcheck.exec()
+sh = require sh_file
+
+user = sh.whoami()
+
+if (user == 'alvin.charity') then
+  SetOption("colorscheme", 'ryuuko')
 end
 
+-- shellcheck is going to be a plugin
+-- require "shellcheck"
+
+-- this is here for no real reason
 -- BindKey("F5", "init.shellcheck")
-MakeCommand("shellcheck", "init.shellcheck", 0)
+-- MakeCommand("shellcheck", "init.shellcheck", 0)
 
 -- standin function for blocked readonlyBuffer commands
 function doNothing()
@@ -78,7 +85,8 @@ MakeCommand("scratch", "init.scratchBuffer", 0)
 -- automatically update plugins, checking once per day
 function updatePlugins()
   -- get home path to avoid hardcoding
-  home = os.getenv("HOME")
+  -- home var is set at the beginning of this script
+
   -- todays date as a two character string prepended with "00"
   today = tostring(os.date("00%d"))
 
