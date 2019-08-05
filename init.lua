@@ -1,11 +1,9 @@
 -- shellcheck is going to be a plugin
+require "shellcheck"
+
 -- this is here for no real reason
 function shellcheck()
-    local buf = CurView().Buf -- The current buffer
-    if buf:FileType() == "shell" then
-      -- the first true means don't run it in the background
-      HandleShellCommand("shellcheck --color=always -f gcc " .. buf.Path, true, true)
-    end
+    shellcheck.exec()
 end
 
 -- BindKey("F5", "init.shellcheck")
