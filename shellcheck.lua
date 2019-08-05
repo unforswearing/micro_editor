@@ -38,7 +38,7 @@ file = io.tmpfile()
 file = file:write(io.popen(shellcheck))
 
 for index, subtable in pairs(file) do
-  print(subtable)
+  print(index)
 end
 -- 0) set current buffer to "scratch" w/ warning msg
 --    CurView().Type.Scratch = true
@@ -55,5 +55,5 @@ print(json.decode(file)[1].line)
 file:close()
 end
 
-return shellcheck
+return shellcheck.exec
 
