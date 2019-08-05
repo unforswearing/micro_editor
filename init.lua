@@ -31,6 +31,11 @@ function readonlyBuffer()
     -- reload to restore the blocked commands
     Reload()
 
+    -- the binding and command seem to be lost
+    -- when the Reload() command is called above
+    BindKey("Altr", "init.readonlyBuffer")
+    MakeCommand("readonly", "init.readonlyBuffer", 0)
+
     -- display status
     messenger:Message("Normal Buffer - File unlocked")
     do return end
