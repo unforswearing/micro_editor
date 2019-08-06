@@ -7,7 +7,7 @@ function updatePlugins()
   today = tostring(os.date("00%d"))
 
   -- path to file containing string of last update
-  filepath = home .. "/.config/micro/plugin_update.info"
+  filepath = home .. "/.config/micro/update_plugins.info"
 
   -- open a readable version of the file
   rfile = io.open(filepath, "r+")
