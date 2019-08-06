@@ -1,4 +1,3 @@
-
 -- automatically update plugins, checking once per day
 function updatePlugins()
   -- get home path to avoid hardcoding
@@ -41,7 +40,7 @@ function onViewOpen(view)
   updatePlugins()
 
   -- switch theme depending on computer
-  -- switchTheme()
+  HandleCommand("switchtheme")
 
   -- return focus to cursor
   return true

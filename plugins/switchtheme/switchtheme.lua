@@ -1,24 +1,34 @@
 local t = import("time")
-local d = t.Now()
 
-messenger:Message(type(d))
--- for k,v in pairs(d) do print(k,v) end
+function trim(s)
+   return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+local d = t.Now()
+d = tostring(d)
+
+rd = string.match(d, '%d%d ')
+rd = trim(rd)
 
 --[[
-function switchTheme()
-  local goos = import("os")
-  messenger:Message(goos.Hostname())
-
-  if (user == 'unforswearing.local') then
-    SetOption("colorscheme", 'ryuuko')
-  end
+function run()
+  messenger:Message(rd)
 end
 --]]
 
--- shellcheck is going to be a plugin
--- require "shellcheck"
+--[[ --]]
+function switchTheme()
+  local goos = import("os")
 
--- this is here for no real reason
--- BindKey("F5", "init.shellcheck")
--- MakeCommand("shellcheck", "init.shellcheck", 0)
+  user = goos.Hostname()
+  if (user == 'unforswearing.local') then
+    homescheme = 'ryuuko'
+    SetOption("colorscheme", homescheme)
+
+    messenger:Message('Theme switched to "' .. homescheme .. '"')
+  end
+end
+
+MakeCommand("switchtheme", "switchtheme.switchTheme", 0)
+BindKey("Altw", "switchtheme.switchTheme")
 
