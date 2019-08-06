@@ -1,4 +1,3 @@
-#!/usr/local/bin/lua
 -- a shellcheck plugin for micro editor
 
 shellcheck = {}
