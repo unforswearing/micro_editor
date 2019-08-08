@@ -11,7 +11,16 @@ function updatePlugins()
 
   -- open a readable version of the file
   rfile = io.open(filepath, "r+")
-  lastupdate = rfile:read "*a"
+
+  if not rfile then
+    -- this should actually create the file if it doesn't exist
+    msg = 'no file exists at ' .. filepath
+    io.stderr:write(msg)
+    messenger:Message(msg)
+    return false
+  end
+
+  lastupdate = assert(rfile:read "*a")
 
   -- if the file doesn't exist or the last update was before today
   if not lastupdate or lastupdate ~= today then
