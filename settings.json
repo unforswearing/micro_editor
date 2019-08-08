@@ -39,7 +39,7 @@
     "indentchar": " ",
     "infobar": true,
     "java-formatter": "",
-    "javascript-formatter": "/usr/local/bin/standard",
+    "javascript-formatter": "",
     "json-formatter": "",
     "jsx-formatter": "",
     "keepautoindent": false,

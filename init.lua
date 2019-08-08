@@ -15,8 +15,8 @@ function updatePlugins()
   if not rfile then
     -- this should actually create the file if it doesn't exist
     msg = 'no file exists at ' .. filepath
-    io.stderr:write(msg)
-    messenger:Message(msg)
+    -- io.stderr:write(msg)
+    -- messenger:Message(msg)
     return false
   end
 
