@@ -1,3 +1,4 @@
+--[[
 local t = import("time")
 
 function trim(s)
@@ -10,22 +11,22 @@ d = tostring(d)
 rd = string.match(d, '%d%d ')
 rd = trim(rd)
 
---[[
 function run()
   messenger:Message(rd)
 end
 --]]
 
---[[ --]]
 function switchTheme()
   local goos = import("os")
 
   user = goos.Hostname()
   if (user == 'unforswearing.local') then
-    homescheme = 'ryuuko'
+    local homescheme = 'ryuuko'
     SetOption("colorscheme", homescheme)
 
-    messenger:Message('Theme switched to "' .. homescheme .. '"')
+    if not GetOption("colorscheme") == homescheme then
+      messenger:Message('Theme switched to "' .. homescheme .. '"')
+    end
   end
 end
 
