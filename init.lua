@@ -1,13 +1,10 @@
 -- automatically update plugins, checking once per day
 function updatePlugins()
-  -- get home path to avoid hardcoding
-  home = os.getenv("HOME")
-
   -- todays date as a two character string prepended with "00"
   today = tostring(os.date("00%d"))
 
   -- path to file containing string of last update
-  filepath = home .. "/.config/micro/update_plugins.info"
+  filepath = configDir .. "update_plugins.info"
 
   -- open a readable version of the file
   rfile = io.open(filepath, "r+")
@@ -20,8 +17,6 @@ function updatePlugins()
   end
 
   lastupdate = assert(rfile:read "*a")
-
-  lastupdate = rfile:read "*a"
 
   -- if the file doesn't exist or the last update was before today
   if not lastupdate or lastupdate ~= today then
@@ -42,8 +37,7 @@ function updatePlugins()
 end
 
 function microbindings()
-  home = os.getenv("HOME")
-  bindingspath = home .. "/.config/micro/bindings.json"
+  bindingspath = configDir .. "/bindings.json"
 
   bindingsfile = NewBufferFromFile(bindingspath)
   HandleCommand("hsplit " .. bindingspath)
@@ -51,8 +45,7 @@ function microbindings()
 end
 
 function microinit()
-  home = os.getenv("HOME")
-  initpath = home .. "/.config/micro/init.lua"
+  initpath = configDir .. "/init.lua"
 
   initfile = NewBufferFromFile(initpath)
   HandleCommand("hsplit " .. initpath)
@@ -60,15 +53,12 @@ function microinit()
 end
 
 function microsettings()
-  home = os.getenv("HOME")
-  settingspath = home .. "/.config/micro/settings.json"
+  settingspath = configDir .. "/settings.json"
 
   settingsfile = NewBufferFromFile(settingspath)
   HandleCommand("hsplit " .. settingspath)
   return true
 end
-
-
 
 function onViewOpen(view)
   -- if (somehow) the readonlyBuffer = false when when micro re/starts
@@ -89,37 +79,5 @@ function onViewOpen(view)
   -- return focus to cursor
   return true
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
