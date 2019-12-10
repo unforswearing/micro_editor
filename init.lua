@@ -11,8 +11,6 @@ function updatePlugins()
 
   -- open a readable version of the file
   rfile = io.open(filepath, "r+")
-<<<<<<< HEAD
-
   if not rfile then
     -- this should actually create the file if it doesn't exist
     msg = 'no file exists at ' .. filepath
@@ -22,9 +20,8 @@ function updatePlugins()
   end
 
   lastupdate = assert(rfile:read "*a")
-=======
+
   lastupdate = rfile:read "*a"
->>>>>>> parent of 3f1d556... dont fail if no update file exists (this needs updating)
 
   -- if the file doesn't exist or the last update was before today
   if not lastupdate or lastupdate ~= today then
