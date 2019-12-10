@@ -44,6 +44,7 @@ function microbindings()
   home = os.getenv("HOME")
   bindingspath = home .. "/.config/micro/bindings.json"
 
+  messenger:Message("Opening " .. bindingspath)
   bindingsfile = NewBufferFromFile(bindingspath)
   HandleCommand("hsplit " .. bindingspath)
   return true
@@ -53,6 +54,7 @@ function microinit()
   home = os.getenv("HOME")
   initpath = home .. "/.config/micro/init.lua"
 
+  messenger:Message("Opening " .. initpath)
   initfile = NewBufferFromFile(initpath)
   HandleCommand("hsplit " .. initpath)
   return true
@@ -62,6 +64,7 @@ function microsettings()
   home = os.getenv("HOME")
   settingspath = home .. "/.config/micro/settings.json"
 
+  messenger:Message("Opening " .. settingspath)
   settingsfile = NewBufferFromFile(settingspath)
   HandleCommand("hsplit " .. settingspath)
   return true

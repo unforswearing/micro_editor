@@ -1,4 +1,6 @@
 buffers/
 goto.test
-plugins/*
+plugins/fmt
+plugins/fzf
+plugins/micro-goto-plugin
 update_plugins.info
