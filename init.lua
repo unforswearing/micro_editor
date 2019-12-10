@@ -75,6 +75,12 @@ end
 
 function deleteToEnd()
   HandleCommand("SelectToEndOfLine")
+  return true
+end
+
+function performWc()
+  HandleCommand("wc")
+  return true
 end
 
 --[[

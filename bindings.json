@@ -1,7 +1,4 @@
 {
-  "Esc": "command:term",
-  "CtrlE": "EndOfLine",
-  "CtrlA": "StartOfLine",
   "Alt-1": "VSplit",
   "Alt-2": "HSplit",
   "Alt-3": "PreviousSplit",
@@ -10,7 +7,12 @@
   "Alt-7": "init.shellcheck",
   "Alt-9": "PreviousTab",
   "Alt-0": "NextTab",
-  "Ctrl-R": "CommandMode",
+  "Alta": "SelectAll",
+  "Altc": "command:wc",
   "Altk": "SelectToEndOfLine,Delete",
-  "Altx": "SelectToEndOfLine,Cut"
+  "Altx": "SelectToEndOfLine,Cut",
+  "CtrlA": "StartOfLine",
+  "CtrlE": "EndOfLine",
+  "Ctrl-R": "CommandMode",
+  "Esc": "command:term"
 }
