@@ -40,10 +40,44 @@ function updatePlugins()
   return true
 end
 
+function microbindings()
+  home = os.getenv("HOME")
+  bindingspath = home .. "/.config/micro/bindings.json"
+
+  bindingsfile = NewBufferFromFile(bindingspath)
+  HandleCommand("hsplit " .. bindingspath)
+  return true
+end
+
+function microinit()
+  home = os.getenv("HOME")
+  initpath = home .. "/.config/micro/init.lua"
+
+  initfile = NewBufferFromFile(initpath)
+  HandleCommand("hsplit " .. initpath)
+  return true
+end
+
+function microsettings()
+  home = os.getenv("HOME")
+  settingspath = home .. "/.config/micro/settings.json"
+
+  settingsfile = NewBufferFromFile(settingspath)
+  HandleCommand("hsplit " .. settingspath)
+  return true
+end
+
+
+
 function onViewOpen(view)
   -- if (somehow) the readonlyBuffer = false when when micro re/starts
   -- show the 'READONLY' warning in the gutter. this shouldn't ever trigger
   -- if CurView().Type.Readonly then doNothing() end
+
+  -- add commands to open various micro config files
+  MakeCommand("bindings", "init.microbindings", 0)
+  MakeCommand("settings", "init.microsettings", 0)
+  MakeCommand("init", "init.microinit", 0)
 
   -- update plugins
   updatePlugins()

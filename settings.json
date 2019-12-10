@@ -88,7 +88,7 @@
     "tabmovement": false,
     "tabsize": 2,
     "tabstospaces": true,
-    "termtitle": false,
+    "termtitle": true,
     "tex-formatter": "",
     "trimdiff": false,
     "typescript-formatter": "",
