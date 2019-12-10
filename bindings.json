@@ -10,5 +10,7 @@
   "Alt-7": "init.shellcheck",
   "Alt-9": "PreviousTab",
   "Alt-0": "NextTab",
-  "Ctrl-R": "CommandMode"
+  "Ctrl-R": "CommandMode",
+  "Altk": "SelectToEndOfLine,Delete",
+  "Altx": "SelectToEndOfLine,Cut"
 }

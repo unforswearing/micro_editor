@@ -36,10 +36,12 @@ function updatePlugins()
   return true
 end
 
+-- the three config binding functions below can be combined
+-- and deduped to shorten / simplify this process
 function microbindings()
   bindingspath = configDir .. "/bindings.json"
 
-  messenger:Message("opening" .. bindingspath)
+  messenger:Message("opening " .. bindingspath)
   bindingsfile = NewBufferFromFile(bindingspath)
   HandleCommand("hsplit " .. bindingspath)
   return true
@@ -48,6 +50,7 @@ end
 function microinit()
   initpath = configDir .. "/init.lua"
 
+  messenger:Message("opening " .. initpath)
   initfile = NewBufferFromFile(initpath)
   HandleCommand("hsplit " .. initpath)
   return true
@@ -56,20 +59,34 @@ end
 function microsettings()
   settingspath = configDir .. "/settings.json"
 
+  messenger:Message("opening " .. settingspath)
   settingsfile = NewBufferFromFile(settingspath)
   HandleCommand("hsplit " .. settingspath)
   return true
 end
 
-function onViewOpen(view)
-  -- if (somehow) the readonlyBuffer = false when when micro re/starts
-  -- show the 'READONLY' warning in the gutter. this shouldn't ever trigger
-  -- if CurView().Type.Readonly then doNothing() end
-
+-- the above commands should mabe be included in the function below
+function setConfigBindings()
   -- add commands to open various micro config files
   MakeCommand("bindings", "init.microbindings", 0)
   MakeCommand("settings", "init.microsettings", 0)
   MakeCommand("init", "init.microinit", 0)
+end
+
+function deleteToEnd()
+  HandleCommand("SelectToEndOfLine")
+end
+
+--[[
+  Main command runner uses onView() trigger to load custom
+  stuff to be usable in the current buffer
+--]]
+
+function onViewOpen(view)
+  messenger:Message("Editing " .. view.Buf.path)
+
+  -- set bindings to easily open micro config files
+  setConfigBindings()
 
   -- update plugins
   updatePlugins()
@@ -80,5 +97,3 @@ function onViewOpen(view)
   -- return focus to cursor
   return true
 end
-
-
