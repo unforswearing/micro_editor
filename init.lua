@@ -78,11 +78,6 @@ function deleteToEnd()
   return true
 end
 
-function performWc()
-  HandleCommand("wc")
-  return true
-end
-
 --[[
   Main command runner uses onView() trigger to load custom
   stuff to be usable in the current buffer
