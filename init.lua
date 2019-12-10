@@ -39,6 +39,7 @@ end
 function microbindings()
   bindingspath = configDir .. "/bindings.json"
 
+  messenger:Message("opening" .. bindingspath)
   bindingsfile = NewBufferFromFile(bindingspath)
   HandleCommand("hsplit " .. bindingspath)
   return true
