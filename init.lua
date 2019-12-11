@@ -73,9 +73,20 @@ function setConfigBindings()
   MakeCommand("init", "init.microinit", 0)
 end
 
-function deleteToEnd()
-  HandleCommand("SelectToEndOfLine")
-  return true
+-- savecursor is true in settings.json, but it might get annoying
+-- use ctrl-r 'savecursor' to toggle it off
+function optionToggleSaveCursor()
+  -- SetOption(option, value string)
+  cursoropt = GetOption("savecursor")
+
+  if cursoropt then
+    SetOption("savecursor", "false")
+    msg = "Option 'savecursor' is off"
+  else
+    msg = "Option 'savecursor' is on"
+  end
+
+  messenger:Message(msg)
 end
 
 --[[
@@ -89,6 +100,9 @@ function onViewOpen(view)
   -- set bindings to easily open micro config files
   setConfigBindings()
 
+  -- use 'savecursor' to turn this option off in the current buffer
+  -- MakeCommand("savecursor", "init.optionToggleSaveCursor")
+
   -- update plugins
   updatePlugins()
 
@@ -98,3 +112,40 @@ function onViewOpen(view)
   -- return focus to cursor
   return true
 end
+
+
+-- when all text is selected via alt-a:
+-- 1) save the file in case something happens
+-- 2) rebind the escape key to something that will move the cursor
+--    (this breaks the selection)
+-- 3) rebind the esc key to 'command:term'
+-- TODO: return the cursor to the position before the select all.
+--       not sure how to do this yet / need more research
+function onSelectAll(view)
+  view:Save(true)
+
+  -- dont show the save message
+  messenger:Message(" ")
+  BindKey("Esc", "CursorLeft")
+
+  function onCursorStart(view)
+    BindKey("Esc", "command:term")
+    return false
+  end
+  return true
+end
+
+
+function onUndo(view)
+  view:Save(true)
+
+  -- dont show the save message
+  messenger:Message(" ")
+
+  return false
+end
+
+
+-- add command that uses onSave() to make a commit (if in a git dir)
+-- every time the file is saved. This may not be the best idea performance
+-- wise, but it may be useful for work stuff
