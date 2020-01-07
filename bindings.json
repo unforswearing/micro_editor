@@ -14,8 +14,8 @@
   "CtrlA": "StartOfLine",
   "CtrlE": "EndOfLine",
   "Ctrl-R": "CommandMode",
-  "CtrlBackslash": "OutdentSelection",
-  "CtrlSpace": "IndentSelection",
+  "CtrlRightSq": "OutdentSelection",
+  "CtrlBackslash": "IndentSelection",
   "Esc": "command:term",
   "Alt-\\": "ToggleRuler"
 }
