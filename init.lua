@@ -124,7 +124,7 @@ end
 function onSelectAll(view)
   view:Save(true)
 
-  -- dont show the save message
+  -- dont show the save messagef
   messenger:Message(" ")
   BindKey("Esc", "CursorLeft")
 
@@ -137,10 +137,7 @@ end
 
 
 function onUndo(view)
-  view:Save(true)
-
-  -- dont show the save message
-  messenger:Message(" ")
+  view:Save()
 
   return false
 end
