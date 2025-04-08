@@ -1,4 +1,6 @@
-buffers/
+buffers/*
 goto.test
+backups/*
+plug/*
 plugins/*
 update_plugins.info

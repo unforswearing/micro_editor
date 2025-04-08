@@ -8,6 +8,7 @@
     "Alt-5": "Unsplit",
     "Alt-9": "PreviousTab",
     "Alt-\\": "ToggleRuler",
+    "Alt-o": "command:urlopen",
     "Alta": "SelectAll",
     "Altc": "command:wc",
     "Altk": "SelectToEndOfLine,Delete",
