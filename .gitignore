@@ -1,4 +1,4 @@
 buffers/
-plug/*
+goto.test
 plugins/*
 update_plugins.info
