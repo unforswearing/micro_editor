@@ -1,0 +1,410 @@
+# Warning: This config does not include keys that have an unset value
+"$schema" = "https://starship.rs/config-schema.json"
+
+# format = "$all"
+format = "$time$shell$line_break$shlvl$directory$git_branch$git_commit$git_state$git_metrics$git_status$package$deno$elixir$golang$haskell$julia$lua$nim$nodejs$perl$python$quarto$ruby$typst$memory_usage$direnv$env_var$crystal$sudo$cmd_duration$line_break$battery$character"
+
+right_format = ""
+# continuation_prompt = "[∙](bright-black) "
+scan_timeout = 30
+command_timeout = 500
+add_newline = true
+follow_symlinks = true
+
+[palettes]
+
+[profiles]
+
+[bun]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "bun "
+style = "black"
+disabled = false
+detect_extensions = []
+detect_files = [
+    "bun.lockb",
+    "bunfig.toml",
+]
+detect_folders = []
+
+[character]
+format = "$symbol "
+success_symbol = "[>](blue)"
+error_symbol = "[>](red)"
+vimcmd_symbol = "[<](green)"
+vimcmd_visual_symbol = "[<](yellow)"
+vimcmd_replace_symbol = "[<](purple)"
+vimcmd_replace_one_symbol = "[<](purple)"
+disabled = false
+
+[cmd_duration]
+min_time = 500
+format ="([$duration]($style))"
+style = "yellow"
+show_milliseconds = false
+disabled = false
+show_notifications = false
+min_time_to_notify = 45000
+
+[deno]
+format = "[$symbol]($style)"
+version_format = "v${raw}"
+symbol = "deno "
+style = "black"
+disabled = false
+detect_extensions = []
+detect_files = [
+    "deno.json",
+    "deno.jsonc",
+    "mod.ts",
+    "deps.ts",
+    "mod.js",
+    "deps.js",
+]
+detect_folders = []
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+style = "blue"
+disabled = false
+read_only = "🔒"
+read_only_style = "red"
+truncation_symbol = ""
+home_symbol = "~"
+use_os_path_sep = true
+
+[directory.substitutions]
+
+[direnv]
+format = "[$symbol$loaded/$allowed]($style) "
+symbol = "direnv "
+style = "yellow"
+disabled = true
+detect_extensions = []
+detect_files = [".envrc"]
+detect_folders = []
+allowed_msg = "allowed"
+not_allowed_msg = "not allowed"
+denied_msg = "denied"
+loaded_msg = "loaded"
+unloaded_msg = "not loaded"
+
+[fill]
+style = "bold black"
+symbol = "."
+disabled = false
+
+[gcloud]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = ":: "
+style = "white"
+truncation_length = 9223372036854775807
+truncation_symbol = "…"
+only_attached = false
+always_show_remote = false
+ignore_branches = []
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+style = "green"
+only_detached = true
+disabled = false
+tag_symbol = ""
+tag_disabled = true
+tag_max_candidates = 0
+
+[git_metrics]
+added_style = "green"
+deleted_style = "red"
+only_nonzero_diffs = true
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+disabled = false
+ignore_submodules = false
+
+[git_state]
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style = "yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[git_status]
+# format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([\[$modified$conflicted$renamed$untracked$staged$ahead_behind\]]($style) )'
+style = "black"
+stashed = ""
+modified = ""
+conflicted = "CONFLICT"
+renamed = ""
+untracked = "untracked"
+staged = "staged"
+ahead = ">>"
+behind = "<<"
+typechanged = ""
+up_to_date = ""
+diverged = ""
+deleted = ""
+ignore_submodules = false
+disabled = false
+
+[golang]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "go "
+style = "black"
+disabled = false
+not_capable_style = "bold red"
+detect_extensions = ["go"]
+detect_files = [
+    "go.mod",
+    "go.sum",
+    "go.work",
+    "glide.yaml",
+    "Gopkg.yml",
+    "Gopkg.lock",
+    ".go-version",
+]
+detect_folders = ["Godeps"]
+
+[haskell]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "haskell "
+style = "black"
+disabled = false
+detect_extensions = [
+    "hs",
+    "cabal",
+    "hs-boot",
+]
+detect_files = [
+    "stack.yaml",
+    "cabal.project",
+]
+detect_folders = []
+
+[hostname]
+ssh_only = true
+ssh_symbol = "ssh "
+trim_at = "."
+detect_env_vars = []
+format = "[$ssh_symbol$hostname]($style) in "
+style = "green dimmed bold"
+disabled = false
+
+[julia]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "julia "
+style = "black"
+disabled = false
+detect_extensions = ["jl"]
+detect_files = [
+    "Project.toml",
+    "Manifest.toml",
+]
+detect_folders = []
+
+[localip]
+ssh_only = false
+format = "[$localipv4]($style) "
+style = "yellow bold"
+disabled = true
+
+[lua]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "lua "
+style = "black"
+lua_binary = "lua"
+disabled = false
+detect_extensions = ["lua"]
+detect_files = [".lua-version"]
+detect_folders = ["lua"]
+
+[memory_usage]
+threshold = 90
+format = "via $symbol[$ram( | $swap)]($style) "
+style = "white bold dimmed"
+symbol = "🐏 "
+disabled = true
+
+[nim]
+format = "[$symbol]($style)"
+version_format = "v${raw}"
+symbol = "nim "
+style = "black"
+disabled = true
+detect_extensions = [
+    "nim",
+    "nims",
+    "nimble",
+]
+detect_files = ["nim.cfg"]
+detect_folders = []
+
+[nodejs]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "node "
+style = "black"
+disabled = false
+not_capable_style = "red"
+detect_extensions = [
+    "js",
+    "mjs",
+    "cjs",
+    "ts",
+    "mts",
+    "cts",
+]
+detect_files = [
+    "package.json",
+    ".node-version",
+    ".nvmrc",
+]
+detect_folders = []
+
+[package]
+disabled = true
+
+[python]
+pyenv_version_name = false
+pyenv_prefix = "pyenv "
+python_binary = [
+    "python",
+    "python3",
+    "python2",
+]
+format = "[$symbol]($style)"
+version_format = ""
+style = "black"
+symbol = "py "
+disabled = false
+detect_extensions = ["py"]
+detect_files = [
+    "requirements.txt",
+    ".python-version",
+    "pyproject.toml",
+    "Pipfile",
+    "tox.ini",
+    "setup.py",
+    "__init__.py",
+]
+detect_folders = []
+
+[quarto]
+format = "[$symbol]($style)"
+version_format = "v${raw}"
+symbol = "quarto "
+style = "black"
+disabled = false
+detect_extensions = ["qmd"]
+detect_files = ["_quarto.yml"]
+detect_folders = []
+
+[ruby]
+format = "[$symbol]($style)"
+version_format = ""
+symbol = "rb "
+style = "black"
+disabled = true
+detect_extensions = ["rb"]
+detect_files = [
+    "Gemfile",
+    ".ruby-version",
+]
+detect_folders = []
+detect_variables = [
+    "RUBY_VERSION",
+    "RBENV_VERSION",
+]
+
+[shell]
+format = "[$indicator]($style) "
+bash_indicator = "bash"
+zsh_indicator = ""
+nu_indicator = "nu"
+cmd_indicator = "cmd"
+unknown_indicator = "???"
+style = "black italic"
+disabled = false
+
+[shlvl]
+threshold = 2
+format = "[$symbol$shlvl]($style) "
+symbol = " "
+repeat = false
+repeat_offset = 0
+style = "bold yellow"
+disabled = false
+
+[status]
+format = "[$symbol$status]($style) "
+symbol = "❌"
+success_symbol = ""
+not_executable_symbol = "🚫"
+not_found_symbol = "🔍"
+sigint_symbol = "🧱"
+signal_symbol = "⚡"
+style = "bold red"
+map_symbol = false
+recognize_signal_code = true
+pipestatus = false
+pipestatus_separator = "|"
+pipestatus_format = '\[$pipestatus\] => [$symbol$common_meaning$signal_name$maybe_int]($style)'
+disabled = false
+
+[sudo]
+format = "[as $symbol]($style)"
+symbol = "🧙 "
+style = "bold blue"
+allow_windows = false
+disabled = true
+
+[time]
+format = "[$time]($style) "
+style = "black italic"
+use_12hr = true
+disabled = false
+utc_time_offset = "local"
+time_range = "-"
+
+[typst]
+format = "[$symbol]($style)"
+version_format = "v${raw}"
+symbol = "typ "
+style = "black"
+disabled = false
+detect_extensions = ["typ"]
+detect_files = ["template.typ"]
+detect_folders = []
+
+[username]
+detect_env_vars = []
+format = "[$user]($style) in "
+style_root = "red bold"
+style_user = "yellow bold"
+show_always = false
+disabled = false
+
+[username.aliases]
+
+[custom]
+

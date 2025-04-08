@@ -1,6 +1,6 @@
 # Ryuuko colorscheme for micro editor
 ###################################
-color-link default "#ECEFF4"
+# color-link default "#ECEFF4"
 # some hex colors do not work (like the one below)
 # need to find a replacement for nord theme
 color-link comment "#6f828c"
@@ -34,7 +34,8 @@ color-link todo "#EBCB8B"
 color-link statusline "#012345,#6F838B"
 color-link line-number "#6f828c"
 color-link current-line-number "#012345,#6F838B"
-color-link cursor-line "#BF616A"
+color-link cursor-line "#6F838B"
 color-link color-column "#7b9fa5,#4F4F4F"
 color-link divider "#7b9fa5"
 color-link tabbar "#4F4F4F,#98726d"
+color-link scrollbar "#012345,#6F838B"
