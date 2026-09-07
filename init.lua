@@ -50,9 +50,6 @@ function init()
     buf = buffer.NewBufferFromFile(configDir .. "/bindings.json")
     micro.CurPane():HSplitIndex(buf, true)
   end
-
-  -- -- -- -- -- -- -- --
-  previewMarkdown()
   -- -- -- -- -- -- -- --
 
   -- open settings.json inside micro using the "settings" command
@@ -60,6 +57,9 @@ function init()
     buf = buffer.NewBufferFromFile(configDir .. "/init.lua")
     micro.CurPane():HSplitIndex(buf, true)
   end
+
+  -- -- -- -- -- -- -- --
+  previewMarkdown()
   -- -- -- -- -- -- -- --
 
   config.MakeCommand("settings", settingsFile, config.NoComplete)
