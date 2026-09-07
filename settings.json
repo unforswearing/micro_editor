@@ -56,7 +56,7 @@
     "scrollbar": true,
     "scrollspeed": 1,
     "scss-formatter": "",
-    "shell-formatter": "",
+    "shell-formatter": "shfmt",
     "softwrap": true,
     "statusformatl": "$(filename) - $(modified)[$(line),$(col)] $(opt:filetype)",
     "statusformatr": "",
