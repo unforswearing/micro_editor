@@ -20,7 +20,7 @@
     "CtrlLeftSq": "None",
     "CtrlRightSq": "OutdentSelection",
     "CtrlUnderscore": "lua:comment.comment",
-    "Esc": "command:term",
+    "Esc": "HSplit,command:term",
     "\u001b[1;2A": "SelectUp",
     "\u001b[1;2B": "SelectDown",
     "\u001b[1;2C": "SelectRight",
