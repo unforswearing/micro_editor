@@ -8,12 +8,21 @@ local configDir = config.ConfigDir
 -- micro.CurPane():HandleCommand(CMD)
 -- micro.InfoBar():Message(MSG)
 -- config.MakeCommand("CMD_NAME", CMDFUNC, config.NoComplete)
+--
+-- local bp = micro.CurPane()
+-- bp:HandleCommand("vivifyMaybe")
+--
+-- if bp.Buf.Type.Kind == buffer.BTDefault then [...]
 
 -- 9/6/2026:
 -- The micro plugin syntax must have changed between versions, and most
 -- of the previous init.lua code no longer seems to work (see init.lua.bkp)
 -- I will enventually try to recreate the init.lua file once I figure out
 -- the new syntax, for now this is a minimal init file.
+
+-- Ideas / Todo
+-- - function to back up current file (file.txt -> file.bkp.txt)
+--   - similar to: github.com/micro-editor/micro/discussions/2976#discussioncomment-7313861
 
 function onViewOpen(bp)
   return true

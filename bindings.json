@@ -10,7 +10,7 @@
     "Alt-\\": "ToggleRuler",
     "Alt-o": "command:urlopen",
     "Alta": "SelectAll",
-    "Altc": "command:wc",
+    "Altd": "command:textfilter gdate --iso",
     "Altk": "SelectToEndOfLine,Delete",
     "Altx": "SelectToEndOfLine,Cut",
     "Ctrl-R": "CommandMode",
