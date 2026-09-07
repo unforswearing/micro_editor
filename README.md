@@ -1,5 +1,9 @@
 [Micro editor](https://github.com/zyedidia/micro) configuration files / [custom themes](/colorschemes).
 
+The `init.lua` and plugins  are out of date and do not comply with `micro` v2 plugin syntax. Update TBD.
+
+---
+
 There are also a handful of in-development plugins that mostly started in `init.lua`. All of the following are in varying states of functionality and are best avoided.
 - email
 - readonly
