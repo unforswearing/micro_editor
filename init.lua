@@ -26,21 +26,21 @@ end
 function init()
   -- open settings.json inside micro using the "settings" command
   function settingsFile()
-    buf = buffer.NewBufferFromFile("~/.config/micro/settings.json")
+    buf = buffer.NewBufferFromFile(configDir .. "/settings.json")
     micro.CurPane():HSplitIndex(buf, true)
   end
   -- -- -- -- -- -- -- --
 
   -- open settings.json inside micro using the "settings" command
   function bindingsFile()
-    buf = buffer.NewBufferFromFile("~/.config/micro/bindings.json")
+    buf = buffer.NewBufferFromFile(configDir .. "/bindings.json")
     micro.CurPane():HSplitIndex(buf, true)
   end
   -- -- -- -- -- -- -- --
 
   -- open settings.json inside micro using the "settings" command
   function initFile()
-    buf = buffer.NewBufferFromFile("~/.config/micro/init.lua")
+    buf = buffer.NewBufferFromFile(configDir .. "/init.lua")
     micro.CurPane():HSplitIndex(buf, true)
   end
   -- -- -- -- -- -- -- --
