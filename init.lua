@@ -33,7 +33,11 @@ end
 function previewMarkdown()
     config.MakeCommand("fm", function(bp)
         bp:Save()
-        shell.RunInteractiveShell('frogmouth "' .. bp.Buf.Path .. '"', false, false)
+        shell.RunInteractiveShell(
+          'frogmouth "' .. bp.Buf.Path .. '"',
+          false,
+          false
+        )
     end, config.NoComplete)
 end
 
