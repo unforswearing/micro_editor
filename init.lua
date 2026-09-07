@@ -1,6 +1,7 @@
 local micro  = import("micro")
 local buffer = import("micro/buffer")
 local config = import("micro/config")
+local shell = import("micro/shell")
 
 local configDir = config.ConfigDir
 
@@ -23,6 +24,19 @@ function onUndo(bp)
   return false
 end
 
+-- preview markdown with frogmouth
+-- https://github.com/Textualize/frogmouth
+-- code below was originally written to use `glow`
+-- https://github.com/charmbracelet/glow
+-- but the preview did not work correctly with the interactive shell.
+-- from https://github.com/micro-editor/micro/issues/2994#issuecomment-4679853093
+function previewMarkdown()
+    config.MakeCommand("fm", function(bp)
+        bp:Save()
+        shell.RunInteractiveShell('frogmouth "' .. bp.Buf.Path .. '"', false, false)
+    end, config.NoComplete)
+end
+
 function init()
   -- open settings.json inside micro using the "settings" command
   function settingsFile()
@@ -36,6 +50,9 @@ function init()
     buf = buffer.NewBufferFromFile(configDir .. "/bindings.json")
     micro.CurPane():HSplitIndex(buf, true)
   end
+
+  -- -- -- -- -- -- -- --
+  previewMarkdown()
   -- -- -- -- -- -- -- --
 
   -- open settings.json inside micro using the "settings" command
