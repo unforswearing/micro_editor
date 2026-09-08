@@ -30,14 +30,15 @@
 
 ## Key Bindings for Split Panes and Tabs
 
->    "Alt-0": "NextTab",
->    "Alt-1": "VSplit",
->    "Alt-2": "HSplit",
->    "Alt-3": "PreviousSplit",
->    "Alt-4": "NextSplit",
->    "Alt-5": "Unsplit",
->    "Alt-9": "PreviousTab",
+> from `bindings.json`
 
+- "Alt-0": "NextTab",
+- "Alt-1": "VSplit",
+- "Alt-2": "HSplit",
+- "Alt-3": "PreviousSplit",
+- "Alt-4": "NextSplit",
+- "Alt-5": "Unsplit",
+- "Alt-9": "PreviousTab",
 
 ## Key Binding to Open a Terminal
 
