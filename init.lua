@@ -1,6 +1,7 @@
 local micro  = import("micro")
 local buffer = import("micro/buffer")
 local config = import("micro/config")
+local os = import("os")
 local shell = import("micro/shell")
 
 local configDir = config.ConfigDir
@@ -14,20 +15,29 @@ local configDir = config.ConfigDir
 --
 -- if bp.Buf.Type.Kind == buffer.BTDefault then [...]
 
--- 9/6/2026:
--- The micro plugin syntax must have changed between versions, and most
--- of the previous init.lua code no longer seems to work (see init.lua.bkp)
--- I will enventually try to recreate the init.lua file once I figure out
--- the new syntax, for now this is a minimal init file.
+--[[
+9/6/2026:
 
--- Ideas / Todo
--- - function to back up current file (file.txt -> file.bkp.txt)
---   - similar to: github.com/micro-editor/micro/discussions/2976#discussioncomment-7313861
+The micro plugin syntax must have changed between versions, and most
+of the previous init.lua code no longer seems to work (see init.lua.bkp)
+I will enventually try to recreate the init.lua file once I figure out
+the new syntax, for now this is a minimal init file.
+--]]
 
+--[[
+
+Ideas / Todo
+  - function to back up current file (file.txt -> file.bkp.txt)
+    - similar to: github.com/micro-editor/micro/discussions/2976#discussioncomment-7313861
+  - function / command to autosave
+--]]
+
+-- this is unused
 function onViewOpen(bp)
   return true
 end
 
+-- automatically save files on undo
 function onUndo(bp)
   bp:Save()
   return false
@@ -73,11 +83,15 @@ function init()
 
   -- -- -- -- -- -- -- --
   previewMarkdown()
+  -- lnksRunner()
   -- -- -- -- -- -- -- --
 
+  -- Edit settings, bindings, and init.lua from within micro:
   config.MakeCommand("settings", settingsFile, config.NoComplete)
   config.MakeCommand("bindings", bindingsFile, config.NoComplete)
   config.MakeCommand("initfile", initFile, config.NoComplete)
+
+  config.MakeCommand("lnks", lnksRunner, config.NoComplete)
 
   return true
 end
