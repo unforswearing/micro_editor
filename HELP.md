@@ -35,4 +35,11 @@ Instead of attempting to recreate shell commands / functions as init.lua scripts
 `textfilter grep colorscheme settings.json` will insert the name of my current colorscheme below:
 >    "colorscheme": "ryuuko",
 
+Another example is using a [`lnks`](https://github.com/unforswearing/lnks) command to insert mardown formatted urls into a current markdown file:
+
+`textfilter lnks init.lua --markdown`:
+
+> [micro_editor/init.lua at master · unforswearing/micro_editor · GitHub](https://github.com/unforswearing/micro_editor/blob/master/init.lua)
+
+
 This can also be used to create a templating system, add snippents from an external file, etc.
