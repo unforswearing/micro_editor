@@ -12,6 +12,7 @@
     "Alta": "SelectAll",
     "Altd": "command:textfilter gdate --iso",
     "Altk": "SelectToEndOfLine,Delete",
+    "Altq": "SaveAll,QuitAll",
     "Altx": "SelectToEndOfLine,Cut",
     "Ctrl-R": "CommandMode",
     "Ctrl-T": "HSplit,command:term",
