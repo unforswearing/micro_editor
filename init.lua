@@ -83,15 +83,12 @@ function init()
 
   -- -- -- -- -- -- -- --
   previewMarkdown()
-  -- lnksRunner()
   -- -- -- -- -- -- -- --
 
   -- Edit settings, bindings, and init.lua from within micro:
   config.MakeCommand("settings", settingsFile, config.NoComplete)
   config.MakeCommand("bindings", bindingsFile, config.NoComplete)
   config.MakeCommand("initfile", initFile, config.NoComplete)
-
-  config.MakeCommand("lnks", lnksRunner, config.NoComplete)
 
   return true
 end
