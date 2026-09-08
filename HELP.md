@@ -28,7 +28,13 @@
 - Alt+Shift+Up - Add Multicursor Up
 - Alt+Shift+Down - Add Multicursor Down
 
-## Getting Shell Input Current Files
+## Key Binding to Open a Terminal
+
+The following binding opens the terminal in a split pane, rather than the default new pane.
+
+>    "Ctrl-T": "HSplit,command:term",
+
+## Getting Shell Input into Current Files
 
 Instead of attempting to recreate shell commands / functions as init.lua scripts, just use `textfilter` to insert the output of shell commands into files. For example
 
@@ -40,6 +46,5 @@ Another example is using a [`lnks`](https://github.com/unforswearing/lnks) comma
 `textfilter lnks init.lua --markdown`:
 
 > [micro_editor/init.lua at master · unforswearing/micro_editor · GitHub](https://github.com/unforswearing/micro_editor/blob/master/init.lua)
-
 
 This can also be used to create a templating system, add snippents from an external file, etc.
