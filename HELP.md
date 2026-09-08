@@ -28,6 +28,17 @@
 - Alt+Shift+Up - Add Multicursor Up
 - Alt+Shift+Down - Add Multicursor Down
 
+## Key Bindings for Split Panes and Tabs
+
+>    "Alt-0": "NextTab",
+>    "Alt-1": "VSplit",
+>    "Alt-2": "HSplit",
+>    "Alt-3": "PreviousSplit",
+>    "Alt-4": "NextSplit",
+>    "Alt-5": "Unsplit",
+>    "Alt-9": "PreviousTab",
+
+
 ## Key Binding to Open a Terminal
 
 The following binding opens the terminal in a split pane, rather than the default new pane.
@@ -47,4 +58,4 @@ Another example is using a [`lnks`](https://github.com/unforswearing/lnks) comma
 
 > [micro_editor/init.lua at master · unforswearing/micro_editor · GitHub](https://github.com/unforswearing/micro_editor/blob/master/init.lua)
 
-This can also be used to create a templating system, add snippents from an external file, etc.
+This can also be used to create a templating system, add snippets from an external file, etc.
