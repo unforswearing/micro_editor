@@ -4,7 +4,7 @@
     "Alt-1": "VSplit",
     "Alt-2": "HSplit",
     "Alt-3": "PreviousSplit",
-    "Alt-4": "NextSplit",
+    "Alt-4": "NextSplit|FirstSplit",
     "Alt-5": "Unsplit",
     "Alt-9": "PreviousTab",
     "Alt-\\": "ToggleRuler",

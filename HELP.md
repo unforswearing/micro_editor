@@ -46,6 +46,10 @@ The following binding opens the terminal in a split pane, rather than the defaul
 
 >    "Ctrl-T": "HSplit,command:term",
 
+## Running Shell Commands Inside Micro
+
+Using `ShellMode`: Ctrl-b
+
 ## Getting Shell Input into Current Files
 
 Instead of attempting to recreate shell commands / functions as init.lua scripts, just use `textfilter` to insert the output of shell commands into files. For example
