@@ -28,11 +28,35 @@
 - Alt+Shift+Up - Add Multicursor Up
 - Alt+Shift+Down - Add Multicursor Down
 
-## Getting Shell Input Current Files
+## Key Bindings for Split Panes and Tabs
+
+> from `bindings.json`
+
+- "Alt-0": "NextTab",
+- "Alt-1": "VSplit",
+- "Alt-2": "HSplit",
+- "Alt-3": "PreviousSplit",
+- "Alt-4": "NextSplit",
+- "Alt-5": "Unsplit",
+- "Alt-9": "PreviousTab",
+
+## Key Binding to Open a Terminal
+
+The following binding opens the terminal in a split pane, rather than the default new pane.
+
+>    "Ctrl-T": "HSplit,command:term",
+
+## Getting Shell Input into Current Files
 
 Instead of attempting to recreate shell commands / functions as init.lua scripts, just use `textfilter` to insert the output of shell commands into files. For example
 
 `textfilter grep colorscheme settings.json` will insert the name of my current colorscheme below:
 >    "colorscheme": "ryuuko",
 
-This can also be used to create a templating system, add snippents from an external file, etc.
+Another example is using a [`lnks`](https://github.com/unforswearing/lnks) command to insert mardown formatted urls into a current markdown file:
+
+`textfilter lnks init.lua --markdown`:
+
+> [micro_editor/init.lua at master · unforswearing/micro_editor · GitHub](https://github.com/unforswearing/micro_editor/blob/master/init.lua)
+
+This can also be used to create a templating system, add snippets from an external file, etc.
