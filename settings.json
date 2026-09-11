@@ -21,8 +21,10 @@
     "pluginchannels": [
         "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
     ],
-    "pluginrepos": [],
-    "python-formatter": "",
+    "pluginrepos": [
+        "https://raw.githubusercontent.com/Neko-Box-Coder/MicroOmni/master/repo.json"
+    ],
+     "python-formatter": "",
     "rmtrailingws": true,
     "ruby-formatter": "",
     "saveundo": true,
